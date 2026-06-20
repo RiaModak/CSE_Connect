@@ -1,19 +1,105 @@
 # MITWPU CSE Connect
 
-A full-stack university CSE department portal for managing student records, clubs, achievements, and announcements.
+## Overview
 
-## Tech Stack
+MITWPU CSE Connect is a web-based department management system designed to centralize and manage information related to students, clubs, achievements, and departmental announcements. The platform provides a structured way to store, retrieve, and maintain departmental records through a single interface.
 
-- **Backend**: Java 17, Spring Boot 3.2, Spring Security, JWT, MySQL, JPA/Hibernate
-- **Frontend**: React 18, Vite, Tailwind CSS, React Router, Recharts, Framer Motion
+## Features
 
-## Prerequisites
+- JWT-based authentication with role-based access control (ADMIN, TEACHER, STUDENT)
+- Student management with CRUD, bulk CSV import, academic records
+- Teacher management with panel assignment
+- Club management with membership tracking and notices
+- Achievement submission and verification workflow
+- Announcements with audience targeting
+- Audit logging for all mutations
+- Soft-delete pattern for data preservation
+- Glassmorphism UI with responsive design
+- Charts and analytics dashboards
+- File upload support for achievement proofs
 
-- Java 17+
-- Maven 3.8+
-- Node.js 18+
-- MySQL 8.0+
+## Main Modules
 
+### Student Management
+
+* Add student records
+* View student details
+* Update student information
+* Delete student records
+
+### Club Management
+
+* Create and manage clubs
+* Maintain club member information
+* Store club-related details and activities
+
+### Achievement Management
+
+* Record and manage student achievements
+* Maintain achievement history
+* Verify submitted achievements
+
+### Announcements
+
+* Create and publish department announcements
+* Display important notices and updates
+
+### Dashboard
+
+* View key departmental information
+* Access records from a centralized interface
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Java 17
+* Spring Boot
+* Spring Data JPA
+* Hibernate
+* MySQL
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+
+### Tools
+
+* Maven
+* Git
+* GitHub
+
+### Database
+
+The application uses MySQL to store and manage:
+
+* Student Records
+* Club Information
+* Achievement Records
+* Announcements
+
+---
+## System Architecture
+
+React Frontend
+
+↓
+
+Spring Boot REST APIs
+
+↓
+
+JPA / Hibernate
+
+↓
+
+MySQL Database
+
+---
 ## Setup
 
 ### 1. Database
@@ -50,62 +136,5 @@ The frontend starts on `http://localhost:5173`.
 | Teacher | sunita.sharma@mitwpu.edu.in    | Teacher@1234  |
 | Student | ria.modak@mitwpu.edu.in        | Student@1234  |
 
-## Features
+---
 
-- JWT-based authentication with role-based access control (ADMIN, TEACHER, STUDENT)
-- Student management with CRUD, bulk CSV import, academic records
-- Teacher management with panel assignment
-- Club management with membership tracking and notices
-- Achievement submission and verification workflow
-- Announcements with audience targeting
-- Audit logging for all mutations
-- Soft-delete pattern for data preservation
-- Glassmorphism UI with responsive design
-- Charts and analytics dashboards
-- File upload support for achievement proofs
-
-## API Endpoints
-
-### Auth
-- `POST /api/auth/login` - Login
-- `POST /api/auth/refresh` - Refresh token
-- `POST /api/auth/logout` - Logout
-
-### Students
-- `GET /api/students` - List students (paginated, filterable)
-- `GET /api/students/{prn}` - Get student details
-- `POST /api/students` - Create student
-- `PUT /api/students/{prn}` - Update student
-- `DELETE /api/students/{prn}` - Soft-delete student
-- `POST /api/students/bulk-import` - Bulk import from CSV
-- `POST /api/students/{prn}/academic-records` - Add academic record
-- `PUT /api/students/me` - Update own profile (student only)
-
-### Teachers
-- `GET /api/teachers` - List teachers
-- `POST /api/teachers` - Create teacher
-- `PUT /api/teachers/{id}` - Update teacher
-- `DELETE /api/teachers/{id}` - Delete teacher
-- `POST /api/teachers/assign-panel` - Assign panel
-
-### Clubs
-- `GET /api/clubs` - List clubs
-- `GET /api/clubs/{id}` - Club details
-- `POST /api/clubs` - Create club
-- `POST /api/clubs/{id}/members` - Add member
-- `POST /api/clubs/{id}/notices` - Post notice
-
-### Achievements
-- `GET /api/achievements` - List achievements (paginated)
-- `POST /api/achievements` - Submit achievement
-- `PUT /api/achievements/{id}/verify` - Verify/reject achievement
-
-### Announcements
-- `GET /api/announcements` - Get visible announcements
-- `POST /api/announcements` - Create announcement
-
-### Admin
-- `GET /api/admin/audit-logs` - Get audit logs
-- `GET /api/dashboard/admin` - Admin dashboard stats
-- `GET /api/dashboard/teacher` - Teacher dashboard stats
-- `GET /api/dashboard/student` - Student dashboard stats
