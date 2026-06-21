@@ -137,4 +137,5 @@ The frontend starts on `http://localhost:5173`.
 | Student | ria.modak@mitwpu.edu.in        | Student@1234  |
 
 ---
-
+## Contributors
+Ria Modak, Sanika Dange, Himanshu Dikay, Shlok More
